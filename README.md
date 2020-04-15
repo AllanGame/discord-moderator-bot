@@ -18,9 +18,8 @@ The bot is in beta, which means it will gradually improve.
 - Ignore all bot commands
 - Ignore DM commands or messages
 
-# Needs to:
-- npm ms
-   npm install ms --save
-   https://www.npmjs.com/package/ms
+# Upcoming updates:
+- mute and unmute command
+- automod
    
 
