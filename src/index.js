@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
+const config = require('../config.json');
 
 //   _____ __  __ _____    _    _          _   _ _____  _      ______ _____  
 //  / ____|  \/  |  __ \  | |  | |   /\   | \ | |  __ \| |    |  ____|  __ \ 
@@ -9,7 +10,6 @@ const fs = require("fs");
 // | |____| |  | | |__| | | |  | |/ ____ \| |\  | |__| | |____| |____| | \ \ 
 //  \_____|_|  |_|_____/  |_|  |_/_/    \_\_| \_|_____/|______|______|_|  \_\
                                                                          
-client.queue = new Map();
 client.commands = new Discord.Collection();
 
 fs.readdir(__dirname + "/commands", (err, files) => {
@@ -65,4 +65,6 @@ client.on("message", async (message) => {
   if (cmd) cmd.run(client, message, args);
 });
 
-client.login("");
+let token = config.token;
+if(token === null || token === "") return console.log("[Moderator bot] Token is empty! Please specify one at config.json"); 
+client.login(token);
