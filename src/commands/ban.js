@@ -6,52 +6,52 @@ module.exports.run = async (client, message, args) => {
   if (!banned) return;
 
   if (message.author === banned) {
-    const embed = new Discord.MessageEmbed()
+    let embed = new Discord.MessageEmbed()
       .setDescription(`You cannot sanction yourself`)
       .setColor("#2C2F33");
-    message.channel.send({ embed });
+    message.channel.send(embed);
 
     return;
   }
 
   if (!reason) {
-    const embed = new Discord.MessageEmbed()
+    let embed = new Discord.MessageEmbed()
       .setDescription(`Enter a reason`)
       .setColor("#2C2F33");
-    message.channel.send({ embed });
+    message.channel.send(embed);
 
     return;
   }
 
   if (!message.member.permissions.has("BAN_MEMBERS")) {
-    const embed = new Discord.MessageEmbed()
+    let embed = new Discord.MessageEmbed()
       .setDescription(
         "You do not have permission `BAN MEMBERS` contact an administrator"
       )
       .setColor("#2C2F33");
-    message.channel.send({ embed });
+    message.channel.send(embed);
 
     return;
   }
 
   if (!message.guild.me.permissions.has("BAN_MEMBERS")) {
-    const embed = new Discord.MessageEmbed()
+    let embed = new Discord.MessageEmbed()
       .setDescription(
         "I do not have `BAN MEMBERS` permission, please contact an administrator"
       )
       .setColor("#2C2F33");
-    message.channel.send({ embed });
+    message.channel.send(embed);
 
     return;
   }
 
   message.guild.members.ban(banned, { reason: reason });
 
-  const embed1 = new Discord.MessageEmbed()
+  let embed = new Discord.MessageEmbed()
     .setTitle(`${banned.tag} has been successfully banned.`)
     .setColor("#2C2F33");
 
-  message.channel.send(embed1)
+  message.channel.send(embed)
 };
 
 module.exports.help = {
