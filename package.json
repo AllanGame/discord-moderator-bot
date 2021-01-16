@@ -1,0 +1,22 @@
+{
+  "name": "moderator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd src && node .",
+    "devStart": "cd src && nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord-webhook-node": "^1.1.8",
+    "discord.js": "^12.5.1",
+    "mongoose": "^5.10.11",
+    "ms": "^2.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

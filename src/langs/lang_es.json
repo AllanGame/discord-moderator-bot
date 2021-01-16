@@ -1,0 +1,30 @@
+{
+    "command": {
+      "noperms": "No tienes permisos para ejecutar este comando. Requerido: ",
+      "onlydev": "No tienes permisos para realizar esta acción.",
+      "cooldown": "¡Alto ahí, debes esperar `{seconds} segundos` antes de volver a usar el comando `{command}` de nuevo!"
+    },
+    "embed": {
+      "error": "Se produjo un error al ejecutar el comando. Si el problema persiste, contáctanos a través de [nuestro grupo de soporte.](discord.gg/invite)",
+      "footer": "Moderatorbot | Contacta a un desarrollador para más información.",
+      "titleerror": "Moderatorbot | Error",
+      "blacklisted": "¡Alto ahí! Has sido blacklisteado de nuestro bot :(\nSi quieres más información únete [a nuestro Discord.](discord.gg/invite)"
+    },
+    "langembed": {
+      "title": "Moderatorbot | Idioma",
+      "desc": "En esta sección puedes cambiar el lenguaje que verás en el bot. Puedes elegir entre los siguientes idiomas disponibles.",
+      "fieldtitles": {
+        "avaible": "Disponibles",
+        "usage": "Uso"
+      }
+    },
+    "changelang": {
+      "same": "¡Ya tienes este idioma seleccionado!",
+      "successfully": "¡Se ha cambiado correctamente el idioma a Español!"
+    },
+    "commands": {
+      "dev": {
+        "info": "Añade o remueve developers del bot, así como ver la lista de los mismos."
+      }
+    }
+  }

@@ -1,0 +1,30 @@
+{
+    "command": {
+      "noperms": "You do not have permissions to execute this command. Required: ",
+      "onlydev": "You do not have permissions to perform this action.",
+      "cooldown": "Stop there, you must wait `{seconds} seconds` before using the `{command}` command again!"
+    },
+    "embed": {
+      "error": "An error occurred while executing the command. If the problem persists contact us through [our support group.](discord.gg/invite)",
+      "footer": "Moderator | Contact developers for more information.",
+      "titleerror": "Moderator | Error",
+      "blacklisted": "Stop there! You have been blacklisted from our bot :(\nIf you want more information join [our Discord.](discord.gg/invite)"
+    },
+    "langembed": {
+      "title": "Moderator | Language",
+      "desc": "In this section you can change the language that you will see in the bot. You can choose between the following available languages.",
+      "fieldtitles": {
+        "avaible": "Avaibles",
+        "usage": "Usage"
+      }
+    },
+    "changelang": {
+      "same": "You already have this language selected!",
+      "successfully": "Language has been successfully changed to English!"
+    },
+    "commands": {
+      "dev": {
+        "info": "Add or remove developers from the bot, as well as see the list of them."
+      }
+    }
+  }

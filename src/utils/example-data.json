@@ -1,0 +1,10 @@
+{
+    "token": {
+      "discord": "YOUR-BOT-TOKEN"
+    },
+    "database": {
+      "username": "MONGO-USER",
+      "password": "MONGO-PASSWORD",
+      "url": "CLUSTER-URL"
+    }
+  }
