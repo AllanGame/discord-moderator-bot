@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const guildSchema = new mongoose.Schema({
     guildID: String,
     prefix: String,
-    mutedRole: Number,
+    sanctions: Number,
+    mutedRole: String,
     modlogs: String
 });
 

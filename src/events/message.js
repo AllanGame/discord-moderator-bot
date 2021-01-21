@@ -8,7 +8,7 @@ module.exports = (client, message) =>  {
 
     // FILTER
 
-    if (message.webhookID) return; 
+    if (message.webhookID) return;
 
 var filterwords = [
   "fuck",
@@ -75,7 +75,7 @@ if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
                 console.error(err);
             }
 
-            
+
             if(!guild) {
                 const newGuildSchema = new GuildSchema({
                     guildID: message.guild.id,
@@ -146,6 +146,7 @@ if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
                 guild: guild,
                 user: user,
                 lang: lang,
+                prefix: prefix,
                 errorEmbed: errorEmbed,
                 GuildSchema: GuildSchema,
                 UserSchema: UserSchema,
