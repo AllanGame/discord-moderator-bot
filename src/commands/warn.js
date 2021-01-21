@@ -29,39 +29,22 @@ module.exports = {
             reason = "no reason";
         }
 
-        SanctionSchema.findOne(
-            {
-                sanctionID: WarnCode,
-                staffID: message.author.id,
-                targetID: target.id,
-                sanctionType: "Warn",
-                reason: reason,
-            },
-            (err, sanction) => {
-                if (err) {
-                    console.error(err);
-                }
-                if (!sanction) {
-                    const newSanctionSchema = new SanctionSchema({
-                        sanctionID: WarnCode,
-                        staffID: message.author.id,
-                        targetID: target.id,
-                        sanctionType: "Warn",
-                        reason: reason,
-                    });
+        const newSanctionSchema = new SanctionSchema({
+            sanctionID: WarnCode,
+            guildID: message.guild.id,
+            staffID: message.author.id,
+            targetID: target.id,
+            sanctionType: "Warn",
+            reason: reason,
+        });
 
-                    return newSanctionSchema.save().then((p) => {
-                        let WARN_EMBED = new Discord.MessageEmbed().setTitle(`Warn #${p.sanctionID}`).setDescription(`${target.tag} has been successfully warned.`)
+        newSanctionSchema.save().then((p) => {
+            let WARN_EMBED = new Discord.MessageEmbed().setTitle(`Warn #${p.sanctionID}`).setDescription(`${target.tag} has been successfully warned.`);
 
-                        if (reason === "no reason") {
-                            WARN_EMBED.setDescription(
-                                `${target.tag} has been successfully warned.\n` + ` but without reason, if you want to edit and add a reason, please use the comand \`${storage.prefix}reason #${p.sanctionID} new reason\``
-                            );
-                        }
-                        message.channel.send(WARN_EMBED);
-                    });
-                }
+            if (reason === "no reason") {
+                WARN_EMBED.setDescription(`${target.tag} has been successfully warned.\n` + ` but without reason, if you want to edit and add a reason, please use the comand \`${storage.prefix}reason #${p.sanctionID} new reason\``);
             }
-        );
+            message.channel.send(WARN_EMBED);
+        });
     },
 };
