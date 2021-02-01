@@ -5,7 +5,7 @@ and modify the [example-data.json](https://github.com/AllanGame/discord-moderato
 change the name to "data.json" and put this
 
 ```json
-  
+
 {
     "token": {
       "discord": "YOUR-BOT-TOKEN"
@@ -22,4 +22,5 @@ Discord moderator bot
 
 # features
 
-## Galery 
+# Galery
+![]

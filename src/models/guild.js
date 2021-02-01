@@ -5,7 +5,7 @@ const guildSchema = new mongoose.Schema({
     prefix: String,
     sanctions: Number,
     mutedRole: String,
-    modlogs: String
+    modlogsChannel: String
 });
 
 module.exports = mongoose.model("Guild", guildSchema);

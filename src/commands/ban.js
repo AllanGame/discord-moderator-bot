@@ -8,9 +8,12 @@ module.exports = {
     onlydev: false,
     perms: ["BAN_MEMBERS"],
     run: async (client, message, args, storage) => {
+      const codeGenerator = require("../utils/codeGenerator.js");
+      const SanctionSchema = require("../models/sanction.js");
 
       let target = message.mentions.users.first() || client.users.resolve(args[0]);
       let reason = args.slice(1).join(" ");
+      let banCode = codeGenerator.generateCode(5);
 
       // MESSAGES
 
@@ -54,15 +57,29 @@ module.exports = {
       }
 
         message.guild.members.ban(target, { reason: reason }).then(r => {
-        let successfullyembed = new Discord.MessageEmbed()
-          .setDescription(`${target.tag} has been successfully banned.`)
-          .setColor("#2C2F33");
 
-          if(reason === "no reason") {
-          successfullyembed.setDescription(`${target.tag} has been successfully banned. \n` +
-            `but without reason, if you want to edit and add a reason, please use the comand \`${storage.prefix}reason #SANCTION-CODE-NOT-FINISHED new reason\``)
-          }
-        message.channel.send(successfullyembed);
+          const newSanctionSchema = new SanctionSchema({
+              sanctionID: banCode,
+              guildID: message.guild.id,
+              staffID: message.author.id,
+              targetID: target.id,
+              sanctionType: "Ban",
+              reason: reason,
+          });
+
+          newSanctionSchema.save().then((p) => {
+            let successfullyembed = new Discord.MessageEmbed()
+              .setDescription(`${target.tag} has been successfully banned.`)
+              .setColor("#2C2F33");
+
+              if(reason === "no reason") {
+              successfullyembed.setDescription(`${target.tag} has been successfully banned. \n` +
+                `but without reason, if you want to edit and add a reason, please use the comand \`${storage.prefix}reason #${p.sanctionID} new reason\``)
+              }
+            message.channel.send(successfullyembed);
+          });
+
+
       })
 
 
