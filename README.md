@@ -20,6 +20,16 @@ change the name to "data.json" and put this
 
 Discord moderator bot
 
+## To-do
+- TypeScript version
+- Java version
+- Python version
+- Chat modes
+- More moderation commands
+- Dashboard
+- Your suggestions!
+
+
 # features
 
 # Galery
