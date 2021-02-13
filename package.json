@@ -13,6 +13,7 @@
   "dependencies": {
     "discord-webhook-node": "^1.1.8",
     "discord.js": "^12.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.10.11",
     "ms": "^2.1.3"
   },

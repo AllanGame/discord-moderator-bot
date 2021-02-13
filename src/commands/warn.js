@@ -1,18 +1,19 @@
 module.exports = {
-    name: "ban",
-    usage: "ban <user> <limit> <reason>",
-    alias: ["b"],
+    name: "warn",
+    usage: "warn <user> <reason>",
+    description: "Add a warning to a user",
+    alias: ["w"],
     cooldown: 3,
     onlyowner: false,
     onlydev: false,
-    perms: ["KICK_MEMBERS"],
+    perms: [],
     run: (client, message, args, storage) => {
         const Discord = require("discord.js");
         const codeGenerator = require("../utils/codeGenerator.js");
         const SanctionSchema = require("../models/sanction.js");
 
         let target = message.mentions.users.first() || client.users.resolve(args[0]);
-        let reason = args.slice(1).join(" ");
+        let reason = args.slice(1).join(" ") || "no reason";
         let WarnCode = codeGenerator.generateCode(5);
 
         if (!target) {
@@ -24,9 +25,6 @@ module.exports = {
             let sanctionyourselfembed = new Discord.MessageEmbed().setDescription(`You cannot sanction yourself`).setColor("#2C2F33");
             message.channel.send(sanctionyourselfembed);
             return;
-        }
-        if (!reason) {
-            reason = "no reason";
         }
 
         const newSanctionSchema = new SanctionSchema({

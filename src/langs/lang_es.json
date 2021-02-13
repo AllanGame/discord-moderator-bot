@@ -5,13 +5,13 @@
       "cooldown": "¡Alto ahí, debes esperar `{seconds} segundos` antes de volver a usar el comando `{command}` de nuevo!"
     },
     "embed": {
-      "error": "Se produjo un error al ejecutar el comando. Si el problema persiste, contáctanos a través de [nuestro grupo de soporte.](discord.gg/invite)",
-      "footer": "Moderatorbot | Contacta a un desarrollador para más información.",
-      "titleerror": "Moderatorbot | Error",
-      "blacklisted": "¡Alto ahí! Has sido blacklisteado de nuestro bot :(\nSi quieres más información únete [a nuestro Discord.](discord.gg/invite)"
+      "error": "Se produjo un error al ejecutar el comando. Si el problema persiste, contáctanos a través de [nuestro grupo de soporte.](https://discord.gg/fsJv6CB3FQ)",
+      "footer": "Contacta a un desarrollador para más información.",
+      "titleerror": "¡Error!",
+      "blacklisted": "¡Alto ahí! Has entrado a la lista negra de nuestro bot :(\nSi quieres más información únete [a nuestro Discord.](https://discord.gg/fsJv6CB3FQ)"
     },
     "langembed": {
-      "title": "Moderatorbot | Idioma",
+      "title": "Idioma",
       "desc": "En esta sección puedes cambiar el lenguaje que verás en el bot. Puedes elegir entre los siguientes idiomas disponibles.",
       "fieldtitles": {
         "avaible": "Disponibles",
@@ -24,7 +24,25 @@
     },
     "commands": {
       "dev": {
-        "info": "Añade o remueve developers del bot, así como ver la lista de los mismos."
+        "info": "Añade o remueve desarrolladores del bot, así como ver la lista de los mismos."
+      },
+      "purge": {
+        "toobig": "El número debe ser menor que 100",
+        "numbernovalid": "Debes especificar el número de mensajes a borrar"
+      },
+      "ban": {
+        "info": {
+          "title": "Comando: ban",
+          "desc": "**Descripción:** Banear a un usuario. ",
+          "usage":"ban [user] {time} {reason} ",
+          "examples": ["ban <@597253939469221891> spam"]
+        },
+        "messages": {
+          "sanctionyoursel": "No puedes sancionarte",
+          "botnopermission": "No tengo el permiso `BAN_MEMBERS` por favor contacta a un/a adminitrador/a.",
+          "successfully": "{target} Ha sido banneado/a exitosamente.",
+          "noreason": "Pero sin razón alguna, si quieres editar la razón o agregar una, usa el comando `{prefix}reason #{sanctionID} nueva razón`"
+        }
       }
     }
   }

@@ -1,44 +1,45 @@
 module.exports = (client, message) =>  {
-    const { Console } = require("console");
     var Discord = require("discord.js");
     var GuildSchema = require("../models/guild.js");
     var UserSchema = require("../models/user.js");
     let misc = require('../utils/misc.json')
-    let args = message.content.split(" ");
 
-    // FILTER
+    /**
+     * TODO: move the filter to another file
+     */
 
-    if (message.webhookID) return;
+     
+    // if (message.webhookID) return;
 
-var filterwords = [
-  "fuck",
-  "bitch",
-  "fucking",
-  ];
-
-let user = message.author;
-
-if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
-  message.delete();
-
-  message.channel.createWebhook(`${user.username}`, {
-      avatar: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`,})
-    .then((hook) => {
-
-      let { Webhook } = require("discord-webhook-node");
-      let whook = new Webhook(`${hook.url}`);
-
-      let sendhook = args.join(" ");
-
-      filterwords.forEach((word) => {
-        sendhook = sendhook.replace(word, word.split("").map((char) => "×").join("")).toLowerCase()
-      });
-
-      hook.send(sendhook).then((deletehook) => {
-        hook.delete("auto");
-      });
-    });
-}
+    // var filterwords = [
+    //   "fuck",
+    //   "bitch",
+    //   "fucking",
+    //   ];
+    
+    // let user = message.author;
+    
+    // if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
+    //   message.delete();
+    
+    //   message.channel.createWebhook(`${user.username}`, {
+    //       avatar: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`,})
+    //     .then((hook) => {
+    
+    //       let { Webhook } = require("discord-webhook-node");
+    //       let whook = new Webhook(`${hook.url}`);
+    
+    //       let sendhook = args.join(" ");
+    
+    //       filterwords.forEach((word) => {
+    //         sendhook = sendhook.replace(word, word.split("").map((char) => "×").join("")).toLowerCase()
+    //       });
+    
+    //       hook.send(sendhook).then((deletehook) => {
+    //         hook.delete("auto");
+    //       });
+    //     });
+    // }
 
     UserSchema.findOne({
         userID: message.author.id
@@ -63,7 +64,10 @@ if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
             .setAuthor(message.author.tag, message.author.displayAvatarURL())
             .setDescription(lang.embed.blacklisted)
             .setColor("RED")
-            .setFooter(lang.embed.footer)
+            /**
+             * TODO: random footer messages
+             */            
+            // .setFooter(Random message)
             .setTimestamp();
 
         if(message.channel.type == 'dm') return;
@@ -79,7 +83,7 @@ if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
             if(!guild) {
                 const newGuildSchema = new GuildSchema({
                     guildID: message.guild.id,
-                    prefix: "!"
+                    prefix: "!" // default guild prefix
                 });
                 return newGuildSchema.save();
             }
@@ -90,12 +94,15 @@ if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
                 message.channel.send(`Prefix: \`${prefix}\``);
             }
 
+            /**
+             * TODO: random footer messages
+             */
             var errorEmbed = new Discord.MessageEmbed()
-                .setTitle("error")
+                .setTitle(lang.embed.titleerror)
                 .setAuthor(message.author.tag, message.author.displayAvatarURL())
-                .setDescription("error")
+                .setDescription(lang.embed.error)
                 .setColor("RED")
-                .setFooter("error")
+                // .setFooter()
                 .setTimestamp();
 
             if(!message.content.startsWith(prefix)) {
@@ -138,7 +145,7 @@ if (filterwords.some((word) => message.content.toLowerCase().includes(word))) {
                 }
             }
             if(!message.member.permissions.has(cmd.perms)) {
-                message.channel.send("no permss");
+                message.channel.send(lang.command.noperms.replace("{permission}", cmd.perms))
                 return;
             }
 

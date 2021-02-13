@@ -1,17 +1,17 @@
 {
     "command": {
-      "noperms": "You do not have permissions to execute this command. Required: ",
+      "noperms": "You do not have permissions to execute this command. Required: {permission}",
       "onlydev": "You do not have permissions to perform this action.",
       "cooldown": "Stop there, you must wait `{seconds} seconds` before using the `{command}` command again!"
     },
     "embed": {
-      "error": "An error occurred while executing the command. If the problem persists contact us through [our support group.](discord.gg/invite)",
-      "footer": "Moderator | Contact developers for more information.",
-      "titleerror": "Moderator | Error",
-      "blacklisted": "Stop there! You have been blacklisted from our bot :(\nIf you want more information join [our Discord.](discord.gg/invite)"
+      "error": "An error occurred while executing the command. If the problem persists contact us through [our support group.](https://discord.gg/fsJv6CB3FQ)",
+      "footer": "Contact developers for more information.",
+      "titleerror": "Error",
+      "blacklisted": "Stop there! You have been blacklisted from our bot :(\nIf you want more information join [our Discord.](https://discord.gg/fsJv6CB3FQ)"
     },
     "langembed": {
-      "title": "Moderator | Language",
+      "title": "Language",
       "desc": "In this section you can change the language that you will see in the bot. You can choose between the following available languages.",
       "fieldtitles": {
         "avaible": "Avaibles",
@@ -25,6 +25,24 @@
     "commands": {
       "dev": {
         "info": "Add or remove developers from the bot, as well as see the list of them."
+      },
+      "purge": {
+        "toobig": "The number must be less than 100",
+        "numbernovalid": "You must specify the numer of messages to delete"
+      },
+      "ban": {
+        "info": {
+          "title": "Command: ban",
+          "desc": "**Description:** Ban a member. ",
+          "usage":"ban [user] {time} {reason} ",
+          "examples": ["ban <@597253939469221891> spam"]
+        },
+        "messages": {
+          "sanctionyoursel": "You cannot sanction yourself",
+          "botnopermission": "I dont have the permission `BAN_MEMBERS` please contact a server administrator.",
+          "successfully": "{target} has been successfully banned.",
+          "noreason": "but without reason, if you want to edit or add a reason, use the command `{prefix}reason #{sanctionID} new reason`"
+        }
       }
     }
   }

@@ -24,7 +24,9 @@ fs.readdir(__dirname + "/commands", (err, files) => {
     jsfiles.forEach((f, i) => {
         let fileName = f.substring(0, f.length - 3);
         let fileContents = require("./commands/" + f);
-        console.log(`Command ${f} loaded`);
+
+        // you can uncomment if you want to see which commands have been loaded
+        // console.log(`Command ${f} loaded`);
         client.commands.set(fileName, fileContents);
         delete require.cache[require.resolve(`./commands/${fileName}.js`)];
     });
@@ -48,9 +50,8 @@ mongoose.connect(uri, {
     useFindAndModify: false
 }, function(err) {
     if(err) {
-        console.error(`[ERROR] Ha ocurrido un error al conectar con la base de datos.\n${err}`);
+        console.error(`[ERROR] An error occurred connecting to the database.\n${err}`);
         process.exit(1);
-        return;
     }
     console.log(`[INFO] Connected to ${data.database.url} (MongoDB)`);
 });
