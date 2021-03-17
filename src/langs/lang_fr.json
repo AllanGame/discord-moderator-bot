@@ -1,0 +1,48 @@
+{
+    "command": {
+      "noperms": "Vous n'avez pas la permission d'executer cette commande. Permission requise : {permission}",
+      "onlydev": "Vous n'avez pas les permissions nécessaires pour effectuer cette action. ",
+      "cooldown": "Stop, tu dois attendre `{seconds} secondes` avant d'utiliser la commande `{command}` à nouveau !"
+    },
+    "embed": {
+      "error": "Une erreur s'est produite lors de l'exécution de la commande. Si le problème persiste, contactez-nous via [notre serveur de support.](https://discord.gg/fsJv6CB3FQ)",
+      "footer": "Contactez les développeurs pour plus d'informations.",
+      "titleerror": "Erreur",
+      "blacklisted": "Stop ! Vous avez été blacklisté de notre bot :(\n Si vous voulez plus d'informations rejoignez [notre Discord.](https://discord.gg/fsJv6CB3FQ)"
+    },
+    "langembed": {
+      "title": "Langue",
+      "desc": "Dans cette section, vous pouvez modifier la langue du bot. Vous avez le choix entre les langues suivantes.",
+      "fieldtitles": {
+        "avaible": "Disponibles",
+        "usage": "Usage"
+      }
+    },
+    "changelang": {
+      "same": "Vous avez déjà sélectionné cette langue !",
+      "successfully": "La langue a été changée avec succès vers l'anglais !"
+    },
+    "commands": {
+      "dev": {
+        "info": "Ajoutez ou supprimez des développeurs du bot, et consultez la liste de ceux-ci."
+      },
+      "purge": {
+        "toobig": "Le nombre doit être inférieur à 100",
+        "numbernovalid": "Vous devez spécifier le nombre de messages à supprimer"
+      },
+      "ban": {
+        "info": {
+          "title": "Commande: ban",
+          "desc": "**Description:** Bannir un membre. ",
+          "usage":"ban [user] {time} {reason} ",
+          "examples": ["ban <@597253939469221891> spam"]
+        },
+        "messages": {
+          "sanctionyoursel": "Vous ne pouvez pas vous sanctionner vous-même",
+          "botnopermission": "Je n'ai pas la permission `BAN_MEMBERS` veuillez contacter un administrateur du serveur.",
+          "successfully": "{target} a été banni avec succès.",
+          "noreason": "mais sans raison, si vous voulez modifier ou ajouter une raison, utilisez la commande `{prefix}reason #{sanctionID} nouvelle raison`"
+        }
+      }
+    }
+  }
