@@ -1,5 +1,8 @@
 # discord-moderator-bot
 
+# ⚠ Important ⚠
+Soon, a remake of this bot using TypeScript and a lot of changes.
+
 `npm start` to start the bot
 and modify the [example-data.json](https://github.com/AllanGame/discord-moderator-bot/blob/development/src/utils/example-data.json)
 change the name to "data.json" and put this
