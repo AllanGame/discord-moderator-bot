@@ -1,14 +1,15 @@
+var fs = require('fs');
 const Discord = require('discord.js')
 const client = new Discord.Client();
 const mongoose = require("mongoose");
 const data = require("./utils/data.json");
-let fs = require("fs");
 
 client.commands = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 
 fs.readdir(__dirname + "/commands", (err, files) => {
     if(err) {
+        console.warn("There was an error!");
         console.error(err);
         return;
     }
@@ -25,14 +26,14 @@ fs.readdir(__dirname + "/commands", (err, files) => {
         let fileName = f.substring(0, f.length - 3);
         let fileContents = require("./commands/" + f);
 
-        // you can uncomment if you want to see which commands have been loaded
-        // console.log(`Command ${f} loaded`);
+        // * you can uncomment if you want to see which commands have been loaded
+        // * console.log(`Command ${f} loaded`);
         client.commands.set(fileName, fileContents);
         delete require.cache[require.resolve(`./commands/${fileName}.js`)];
     });
 });
 
-for(const file of fs.readdirSync("./events")) {
+for (const file of fs.readdirSync("./events")) {
     if(file.endsWith("js")) {
         let fileName = file.substring(0, file.length - 3);
         let fileContents = require("./events/" + file);

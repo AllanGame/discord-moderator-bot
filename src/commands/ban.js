@@ -1,4 +1,6 @@
+var fs = require('fs');
 const Discord = require("discord.js");
+
 module.exports = {
   name: "ban",
   usage: "ban {user} [time] [reason]",
@@ -10,13 +12,13 @@ module.exports = {
   run: async (client, message, args, storage) => {
     const codeGenerator = require("../utils/codeGenerator.js");
     const SanctionSchema = require("../models/sanction.js");
-
+    message.channel.startTyping();
     let target =
       message.mentions.users.first() || client.users.resolve(args[0]);
     let reason = args.slice(1).join(" ");
     let banCode = codeGenerator.generateCode(5);
 
-    // MESSAGES
+    // * MESSAGES
 
     if (!target) {
       let baninfoembed = new Discord.MessageEmbed()
@@ -89,5 +91,6 @@ module.exports = {
         message.channel.send(successfullyembed);
       });
     });
+    message.channel.stopTyping();
   },
 };
